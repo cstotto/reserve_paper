@@ -1,0 +1,233 @@
+% Use only LaTeX2e, calling the article.cls class and 12-point type.
+
+\documentclass[12pt]{article}
+
+% Users of the {thebibliography} environment or BibTeX should use the
+% scicite.sty package, downloadable from *Science* at
+% http://www.sciencemag.org/authors/preparing-manuscripts-using-latex 
+% This package should properly format in-text
+% reference calls and reference-list numbers.
+
+\usepackage{scicite}
+\usepackage{times}
+
+% The preamble here sets up a lot of new/revised commands and
+% environments.  It's annoying, but please do *not* try to strip these
+% out into a separate .sty file (which could lead to the loss of some
+% information when we convert the file to other formats).  Instead, keep
+% them in the preamble of your main LaTeX source file.
+
+
+% The following parameters seem to provide a reasonable page setup.
+
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+%AMS-Packages .. to be avoided later on.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+%Additional packages
+\usepackage{units}
+\usepackage{afterpage}
+\usepackage{placeins}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage[mathlines]{lineno}
+\linenumbers
+
+% The next command sets up an environment for the abstract to your paper.
+
+\newenvironment{sciabstract}{%
+\begin{quote} \bf}
+{\end{quote}}
+
+% Include your paper's title here
+
+% not more than 96 characters including spaces
+%\title{Combating global food insecurity with an international wheat reserve}
+\title{Combating extremes in global food prices with an international wheat reserve}
+%\title{Improving global food security with an international wheat reserve} 
+
+% Place the author information here.  Please hand-code the contact
+% information and notecalls; do *not* use \footnote commands.  Let the
+% author contact information appear immediately below the author names
+% as shown.  We would also prefer that you don't change the type-size
+% settings shown here.
+
+\author
+{C.~Otto,$^{a,b,d,\ast}$ J.~Schewe$^{a}$, M.J.~Puma $^{b,c,d}$, K.~Frieler $^{a}$\\
+  \\
+  \normalsize{ $^{a}$Potsdam Institute for Climate Impact Research, Potsdam, Germany}\\
+  \normalsize{ $^{b}$The Earth Institute, Columbia University, New York, NY, USA}\\
+  \normalsize{ $^{c}$Center for Climate Systems Research and the NASA Goddard Institute}\\
+  \normalsize{for Space Studies, New York, NY, USA}\\
+  \normalsize{$^{d}$Center for Climate and Life, Columbia University, Palisades, NY, USA}\\
+  \\
+  \normalsize{$^\ast$Corresponding author; E-mail: christian.otto@pik-potsdam.de} }
+
+% Include the date command, but leave its argument blank.
+
+\date{}
+
+
+% self defined comments --> to be replaced in final version
+\input{renew_commands}
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%
+
+\begin{document} 
+
+% Double-space the manuscript.
+
+\baselineskip24pt
+
+% Make the title.
+
+\maketitle 
+
+\begin{sciabstract} % not more than 150 words according to science template (or 125 words or less according to http://www.sciencemag.org/authors/instructions-preparing-initial-manuscript)
+High food price volatility on global markets undermines food security. An international grain reserve has been suggested to prevent damaging price extremes, but available modeling approaches do not allow for reliable assessments of its effectiveness under real-world market conditions. Here, we introduce a novel dynamic multi-regional storage model for agricultural markets that accurately reproduces annual world market prices (including the extremes) and regional ending stocks of wheat from 1980 to the present. We demonstrate that an international wheat reserve of 70 million metric tons would have been sufficient to substantially mitigate past price spikes. Critically, its operational costs are estimated to be small compared to the expenses for present national agricultural support programs, meaning that such a reserve could be a viable means to mitigate regional production shortfalls and price-driving national market interventions. As such, it could become an important tool to mitigate the risks of social instability and climate change.
+\end{sciabstract}
+
+\paragraph*{One sentence summary} % not more than 125 characters
+Global food security could be enhanced by an international wheat reserve mitigating damaging price extremes at moderate costs.
+\newline
+
+Crop price volatility on world markets (WMs) is challenging food security especially for poorer consumers in developing and emerging economies \cite{BRA08}, who cannot be protected sufficiently by their local governments \cite{HLPE11}. In just the last decade, two prominent price peaks -– in 2007/08 and in 2010/11 -– are estimated to have pushed 63 \cite{TIW10} to 80 \cite{FAO08} million people and about 44 million people, respectively, into food insecurity. The resulting food riots undermined social stability in multiple countries \cite{BER13}. Highly volatile prices also threaten the income base of producers, especially smallholders \cite{HLPE11} and render hedging and crop insurance for farmers expensive. Long-term investments into agricultural research \& development (\RD) that are key to enhance the resilience of the global food system \cite{GOD10,FED10} are jeopardized.
+
+Price volatility results from a complex interplay of various long-term and short-term drivers, whose relative importance is still a contentious topic \cite{TAD14}. The set of long-term drivers discussed to have contributed to the recent global food crises include population growth, changing diets in emerging economies \cite{HEA10}, low investments in \RD~as a consequence of low crop-prices in the 1990s \cite{BRA08}, and, especially in the last decade, the rapidly increasing use of biofuels \cite{GOR13,FRA15}. Short-term drivers include nearly simultaneous droughts affecting several major exporting countries, which led to the record-low stock levels preceding both recent price peaks \cite{TRO11}. In this situation, national policy interventions (such as export restrictions by main producers including the Ukraine and Russia \cite{SHA11} and government-driven restocking attempts by several import depending countries in the Middle East and North Africa and in Asia \cite{TRO11,SCH17}) are discussed to have exacerbated the price hikes by further tightening the WM. Also, some authors argue that the liberalization of future markets in the early 2000s may have created speculative bubbles \cite{TAD14,LAG15}. More process-based quantitative modeling is needed to gain a deeper understanding of the market dynamics \cite{SCH17} allowing for tailored food security policies. 
+
+The recent price hikes have initiated a debate on the benefits of an international grain reserve for global food security. While supported by analyses of the International Food Policy Research Institute \cite{BRA09a}, the High Level Panel of Experts on Food Security and Nutrition of the United Nations (UN) \cite{HLPE11}, the World Bank \cite{LIN08} and the Canadian Foodgrains Bank \cite{MCC11}, its efficacy and feasibility has also been questioned \cite{WRI12}. However, to date much of the existing body of literature provides rather anecdotal evidence \cite{BRA08} or presents findings from highly idealized models \cite{WIL91}, which are not able to reproduce past market conditions and therefore do not allow for quantitative assessments. Consequently, we continue to lack reliable estimates on the necessary reserve capacity and the associated costs.
+
+Here, we introduce an agent-based, dynamic, multi-regional model for agricultural commodity markets that accounts for regional variability of production, commercial and strategic stockkeeping, and unilateral short-term policy interventions such as restocking attempts and export restrictions. The model is designed to quantitatively describe the dynamics of prices and regional stocks with sub-annual resolution.
+
+This model is a major advance over widely used competitive storage models \cite{CAF11} and cobweb like models \cite{MIT12}. Designed to explain stylized facts of agricultural markets (e.g. skewness and kurtosis of price distributions, these models are unable to quantitatively reproduce either reported prices or regional changes in stocks. Thus, they cannot provide comprehensive assessment of (i) the effectiveness of an international reserve to damp price spikes or (ii) its impact on regional stocks. Both are key for assessing the effectiveness of a reserve's ability to improve global food security. Further, our model aims to complement large-scale computational (partial) equilibrium models (e.g. the AGLINK-COSIMO model \cite{OECD15} employed by the Food and Agricultural Organization (FAO) of the UN and the Organisation for Economic Co-operation and Development  (OECD)), which are designed to provide long-term price, supply, and demand trends for various socio-economic and climate scenarios. Their complex structure requires a substantial number of modeling assumptions, which renders model validation difficult \cite{VAL07}. Equally important, they are usually calibrated to represent long-term changes in the agricultural system rather than short-term shocks. Together with their coarse (annual to decadal) temporal resolution, the limits their ability to describe price extremes adequately. 
+
+
+We focus our discussion on wheat, arguably the most important food grain. First, we show that our model is able to closely reproduce historical bi-annual world market prices and regional ending stocks from 1980 to the present given reported regional productions, long-term demand trends, and known national market interventions. Then, we use the model to quantify the contributions of different drivers to historical price volatility highlighting the importance of production variability and national policy interventions as main drivers. As these drivers may be difficult to control, we assess the potential of an international reserve scheme as an alternative measure for price stabilization. Such a reserve could be managed, for instance, by a consortium of individual nations together with an international body such as the UN World Food Program (WFP). We discuss policy relevant key aspects such as the reserve's effectiveness in suppressing damaging price extremes and its financial feasibility under real-world market conditions.
+
+A distinguished feature of WMs for agricultural commodities, essential to understand the market dynamics, is the interplay of profit-oriented actors, such as commercial storage holders, with a multitude of governmental policies (such as strategic stockkeeping and import and export levies) aiming to insulate domestic markets from the price volatility at WMs. The latter  largely differ among regions and so does the dependence of domestic consumers upon WM prices. To capture these features, we take a novel modeling approach where we consider (i) five world agricultural regions and (ii) include three representative agents per region: a commercial storage holder, a strategic storage holder, and a domestic consumer.
+%
+%Price and storage dynamics are determined by the interplay of these regional agents.
+%
+A detailed model description may be found in Sec.~\ref{si:modDet} of Supplementary Material (SI). The regions accounted for in the simulations include the four largest wheat producing regions (the European Union (EUR), with France and Germany as main producers; the Former Soviet Union (FSU), having Russia and Ukraine as largest producers; the North Atlantic Free Trade zone (NAF), containing the USA and Canada as main producers; and Centrally Planned Asia (CPA), dominated by China with respect to domestic consumption as well as production), and the rest of the world (ROW). 
+
+\paragraph*{Commercial storage holder}
+We model the commercial storage holder  as risk-neutral and bounded-rational with a forecast horizon of one year. At each timestep, the agent receives the amount of grain harvested in the region and then plans its next WM supplies by maximizing expected profit over the forecasting period. The latter is calculated from the difference between expected revenues and warehousing costs. Expected revenues depend on the agent's expectation on future WM prices. To form these expectations, the agent estimates (i) its own impact on WM price, (ii) its own harvest in the next year, (iii) the WM supplies of its competitors during this period, and (iv) WM demand. We assume that all commercial storage holders have access to the same global supply and demand forecasts provided, for instance, by the FAO.
+
+\paragraph*{Strategic storage holder}
+The strategic storage holder aims at providing food security for the region's domestic consumers. Thus, in contrast to the commercial storage holder, its rationale is not profit maximization, but to assure a target inventory level. The inventory level that is perceived as the optimal tradeoff between food security in times of scarcity and operational costs for warehousing depends on the regional policies and may consequently vary among regions and over time. In the simulations, we assume that the strategic storage holder also encompasses consumer-side stocks at processing firms and wholesalers that are not governmentally owned, but may be regulated by consumer side policies such as import levies and export taxes.
+
+\paragraph*{Domestic consumer}
+The third agent type represents the region's domestic consumption. To keep the model simple, we assume that the domestic consumer does not directly purchase grain from the WM, but instead relies on the region's strategic storage. Consequently, this agent's consumption is limited by the content of the region's strategic inventory.  Unless stated otherwise, annual regional consumption is prescribed according to the values reported by the United States Department of Agriculture (USDA). However, for some simulations, we assume an iso-elastically dependence of regional consumption upon WM price. The elasticities of consumption may vary among regions, which accounts for their different dependencies upon the modeled crop.
+
+\paragraph*{Market dynamics}
+Price and storage dynamics arise from the interplay of the regional agents at the WM. We assume that the WM clears in each timestep, and the equilibrium WM price is determined by equating WM supply with WM demand.
+
+\paragraph*{Trade policies}
+\label{sec:trad_pol}
+We consider two types of regional trade policies: policies that directly impact the regions' strategic stocks and export restrictions. The former comprise long-term changes in strategic stockkeeping policies, as well as short-term demand-side responses to tight markets such as restocking attempts and panic purchases\footnote{Further, we assume that other consumer side policies such as import levies can also be represented by changes in strategic stocks.}. These policies lead to temporal changes of the target stocks-to-use (stu) ratio which is perceived as the optimal tradeoff between food security in times of scarcity and the operational costs for warehousing. Consequently, reported changes in regional stu-ratios (calculated from the ratio of ending stocks and domestic consumption) can be considered as indicators for market interventions. For instance, the abrupt decline of the ending stocks in the NAF region between 1986 and 1988 marks the transition from governmentally managed stocks to a market-oriented stockholding scheme \cite{WES99} (see ending stocks and stu-ratio for NAF region in Fig.~\ref{fig:Fig2} and Fig.~\ref{fig:stuRatios} in SI, respectively). We use major regional changes in stu-ratios that can not be solely explained by changes in WM price as proxies for regional changes in the demand for strategic stockkeeping.
+
+Further, we account for major reported national export restrictions by assuming that the region's commercial storage holder is prohibited from selling a certain share of its inventory at the WM. Since export restrictions are short-term policy measures in times of crises, we assume that agents cannot foresee the onset of export restrictions nor their revocation. The affected commercial storage holder  therefore assumes that, once imposed, the restriction will remain in place for the whole foresight period. Since it is not possible to derive the absolute values of both the regions’ strategic storage capacities and the share of inventory that cannot be sold on the WM directly from the trade data, these parameters are determined by the best fit of simulated prices and regional ending stocks with reported prices and stocks (see Sec.~\ref{si:trad_pol} of SI for details on the implementation and Tab.~\ref{tab:tradPol} for a list of the considered policies, their timing, and the reporting sources).
+
+\paragraph*{International reserve}
+\label{sec:int_reserve}
+The international reserve is a measure designed to reduce price volatility by stabilizing prices within a certain price band centered around a center price, representing long-term price trends. The price band is limited from below by a floor price and from above by a ceiling price. If the price drops below the floor price, the reserve is filled by purchases from the WM until either the price increases above the floor price or the reserve is filled to its capacity. If the price exceeds the ceiling price, grain is released from the reserve onto the market until either the price drops below the ceiling price or the reserve is depleted.
+
+We model biannual WM prices and regional inventory dynamics for wheat from 1980 to the present. The model is driven by annual production data from the USDA, which are combined with regional crop calendars to determine each region's harvesting season (see Sec.~\ref{si:MM} of SI for details). Accounting for the main regional storage policies reported in the literature (Tab.~\ref{tab:tradPol} in SI), we are able to closely reproduce reported prices and ending stocks as indicated by high squared Pearson correlation coefficients $R^2$ (Figs.~\ref{fig:Fig1} and \ref{fig:Fig2}).
+
+We model biannual WM prices and regional inventory dynamics for wheat from $1980$ to the
+present. The model is driven by annual production data of the USDA, which are combined with regional
+crop calenders to determine each region's harvesting season (see Secs.~\ref{si:MM} of SI for details). Accounting for the main regional storage policies reported in
+the literature (Tab.~\ref{tab:tradPol} in SI), we are able to closely reproduce reported prices and
+ending stocks as indicated by high squared Pearson correlation coefficients $R^2$
+(Figs.~\ref{fig:Fig1} and \ref{fig:Fig2}).
+
+\paragraph{Main drivers of price volatility}
+Forcing the model solely by long term variations in production and demand (`trends only scenario')  demonstrates that only 0.2\% of the observed variance in prices can be explained by these drivers. After removing the long-term trends in the simulated and observed time series by taking first differences, no variance can be explained at all. Accounting for annual fluctuations in regional production and consumption (`production \& consumption variability' scenario), the explained variances increases to 14.7\% and taking historical policy interventions into account (“full historical scenario”) allows for 79.2\% of the variance to be explained (see Sec.~\ref{si:scen} of SI for detail on the different scenarios). After detrending, the explained variance for the 2\textsuperscript{nd} scenario (34.3\%) is nearly as high as for the full historical scenario (36.3\%) showing that, for the years 1980 to 2017, short-term fluctuations of production and consumption were by far the dominant drivers of the short-term price volatility at the wheat market. In contrast, strategic long-term decisions on the management of stocks have mainly contributed to the decaying price trend from the 1980s to 2006 (cp. also Fig.~\ref{fig:baseline} in SI to Fig.~\ref{fig:Fig1}). This is why the explained variance (without de-trending) is much higher for the full historical scenario than for the 2\textsuperscript{nd} scenario not accounting for trade interventions. We find that short-term policy responses such as restocking attempts and panic purchases of import dependent MENA countries (ROW region) as well as China (CPA region) have significantly contributed to the 2007/08 and 2010/11 price spikes, which is in line with previous works \cite{HEA08,TRO11,HEA10}. In a scenario without policy changes after 2006 (Figs.~\ref{fig:prices_small_res} and \ref{fig:stocks_small_res} in SI), price spikes are strongly suppressed compared to the full historical scenario. Further, by studying a scenario without export restrictions (Figs.~\ref{fig:prices_small_res} and \ref{fig:stocks_small_res} in SI), we find that export restrictions are crucial to match post-2006 regional ending stocks, but less important than restocking attempts and panic purchases as driver of price volatility.
+
+The overall good fit obtained by accounting only for observed regional fluctuations of consumption
+and production and national trade interventions suggests that, on a biannual timescale, supply and
+demand dynamics have been the dominant drivers of WM price fluctuations; cross-markets
+interactions and speculative bubbles have played a subordinate role. However, we cannot rule out
+that the latter become more important on daily to monthly time-scales as suggested by
+\cite{LAG15}. Our results are in good agreement with the findings of an earlier study using a global,
+dynamic storage model with an annual timestep \cite{SCH17} and show that the conclusions of this
+study remain valid in a multi-regional setting and for a biannual timescale.
+
+\paragraph*{Effectiveness of international reserve}
+The proposed management scheme for the international reserve is effective; even under the `worst-case' assumption that the reserve cannot mitigate price driving national policy interventions (such as the reported beggar-thy-neighbour policies), infrequent price extremes are efficiently suppressed. In the full historical scenario, a reserve of 70 million metric tons (MMT) would have suppressed the most prominent price spike in 2006/07 by 26\% (Fig.~\ref{fig:Fig1}). Because in this scenario, production and consumption in each region are fixed to their reported values, the build-up of the reserve cannot be modeled; it would create an additional demand that cannot be compensated for by production or consumption responses over time. This is why, we initiate the simulations with a filled reserve (Fig.~\ref{fig:Fig2} (global)). However, the reserve remains effective even when accounting for its build-up in a setting where regional consumptions depend iso-elastically on price (see Sec.~\ref{si:scen} of SI for details).  During this build-up, prices increase due to the additional demand of the reserve, but the resulting reductions of regional consumption are modest. Moreover, regional ending stocks are only slightly reduced, suggesting that the reserve's build-up has a negligible impact on the food security of vulnerable consumers (Fig.~\ref{fig:varDem_cons} in SI).
+
+To quantify the reserve's effectiveness in the long-run and under a range of different production conditions, we also drive the model with a 10,000-year artificial production time series that mimics the historic distribution of production anomalies in each region. The size of the strategic inventories is derived from the average observed stu-levels of the international trade years\footnote{According to the definition of the USDA, the international trade year for wheat spans from July to June of the following year.} 2010 to 2015 (see Sec.~\ref{sec:artiTs} of SI for details). Initially, the reserve is empty; the width of the price band of 18\USD~is chosen to optimally suppress prices above the 90\textsuperscript{th} percentile (prices $P\geq 93$\USD) of the price distribution for the full historical scenario. Infrequent price extremes are strongly suppressed by the reserve (thinning of the tails of the price distributions in Fig.~\ref{fig:Fig3}\textbf{A}), whereas overall volatility (measured by the standard deviation of the detrended time series) is only moderately reduced (Fig.~\ref{fig:Fig3}\textbf{B}). The probability of the occurrence of damaging price hikes (here defined as $P\geq 93$\USD) is already strongly reduced for a reserve with a capacity of 30\mmt~(Fig.~\ref{fig:Fig3}\textbf{C}).
+
+It is worth noting that in all scenarios, price volatility, albeit reduced, is not strongly suppressed for two reasons: (i) the reserve remains passive when prices stay within the (broad) price band, and (ii) the floor price is not defended at all costs; if the reserve is filled to its capacity, no more grain is purchased at the market. This is crucial, because price signals set incentives for producers to invest into \RD. They also foster national attempts to enhance food security increasing the overall resilience of the food system \cite{HLPE11}; preservation of some price variability is essential, otherwise we may risk creating a more fragile global food system \cite{TAL12}.
+
+To evaluate the reserve's feasibility, we relate the necessary reserve size to the capacity of existing storage facilities. Data on storage capacities are difficult to obtain on a national level, because many countries, e.g, China and India, consider information on grain stocks to be sensitive. However, for the US, estimates on total storage capacities for all grains are provided by USDA's National Agricultural Statistics Service. For 2012, stock capacity was estimated at 23.16\bnbushels \cite{NASS14} (504\mmt~wheat equivalent\footnote{The conversion factor for wheat is
+  $1\bushel\, \hat{=}\, 0.021772\Mt$ according to
+  \url{http://www.grains.org/buyingselling/conversion-factors}.}). Thus, a 70\mmt-reserve would require additional storage capacity corresponding to about 14\% of the present US reserve capacity. If this burden were shared among many countries as suggested by Justin Lin, the World Bank's former vice president \cite{LIN08}, each country would have to increase its storage capacity only by a small fraction.
+
+Reliable estimates of the reserve's financial viability are key to avoid it becoming a major financial drain, hampering much needed investment in \RD~\cite{WRI12}. Early simulations using a stylized competitive storage model suggested that the reserve may pile up huge stocks of grain in times of abundance entailing unsustainable costs for storage operation \cite{WIL91}. In the reserve management scheme discussed here, the build-up of stocks is limited by the reserve's finite capacity. With annual operational costs of grain storage in industrialized countries ranging between 15 \cite{WIG09} and 36\USDmt~\cite{THO10}\footnote{These costs estimates comprise fixed
+  costs such as costs for facility construction and operation and variable costs depending upon
+  tonnage including costs for drying grain and grain wastage. Following estimates of the Grains
+  Research \& Development Corporation of the Australian Government
+  (\url{https://grdc.com.au/archive/key-issues/economics-of-storing-grain/details}, accessed June,
+  2017), we assume annual fixed cost of 5\USDmt.}, we estimate annual operational costs for a 70\mmt-reserve to be between 0.7 and 1.4\bnUSD. These numbers are obtained from the simulation with iso-elastic demand accounting for all policies (cf.~Figs.~\ref{fig:varDem_price}--~\ref{fig:varDem_cons} in SI), and they are confirmed by our statistical analysis (Fig.~\ref{fig:Fig3}\textbf{C}). Although substantial, they are still small compared to the costs of present national agricultural support programs. For instance, they would make up only between 0.7\% and 1.5\% of the annual expenses for the latest US Farm Bill, the Federal Agriculture Reform and Risk Management Act of 2013 (with projected total costs of 956\bnUSD~in ten years to be spent mainly on producer and consumer support such as crop insurance and supplemental nutrition). Further, the co-benefits of a reserve could compensate for some of these costs. First, by dampening price spikes, it would reduce the expenditures needed to directly respond to food emergencies, reducing the burden of the WFP and other national and non-governmental initiatives. Second, by dampening overall price volatility, it would ensure more stable incomes for farmers and lower their expenses for crop insurance. As a result, other farm support programs could possibly be reduced. Further, it appears reasonable to assume that the trust of market participants in the security provided by a reserve would reduce beggar-thy-neighbour politics and panic purchases, at least to a certain extent. For instance, in a `best-case'-scenario where policy changes are eliminated from 2006 onwards, already a reserve of 30\mmt~would have substantially suppressed the recent price spikes, which is consistent with our findings from the statistical analysis (Fig.~\ref{fig:Fig3}\textbf{B})).
+
+Ongoing climate change may increase production variability \cite{WHE13} and may render nearly simultaneous crop failures in major production regions, like those that substantially contributed to the two recent world food crises \cite{ASS11,CHA14}, more likely. Consequently, damaging price extremes may become an increasingly urgent threat for global food security in the future. The international wheat reserve management scheme presented here could be a viable means to mitigate price volatility, potentially complementing efforts to impede beggar-thy-neighbor policies by binding international free-trade legislation suppressing export restrictions \cite{ANA13}. Both measures require international trade cooperation. Prolonged failure of the WTO to make progress on the Doha Agenda sows doubts that substantial progress on international trade agreements will be made anytime soon in this forum \cite{HLPE11}. Therefore, it appears advisable to follow a two-pronged strategy: if no progress can be made in the WTO negotiations, an international reserve can still be implemented by a different multi-national association that comprises the main producing countries such as the UN or the Organization for Economic Cooperation and Development.
+
+\bibliography{lib}
+\bibliographystyle{Science}
+
+
+\section*{Acknowledgments}
+The authors would like to thank Peter de Menocal for in-depth discussions and helpful comments. The
+work was supported by the Leibniz Competition (SAW-2013-PIK-5) and has received funding from the
+Center for Climate and Life as well as the Initiative on Extreme Weather and Climate of Columbia
+University, New York, NY.
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics[width=.8\textwidth]{plots/full/pric1980_2017}
+\caption{Time series of real wheat prices (black diamonds), simulated prices without (blue dots) and with international wheat reserve (open orange circles). The gray shaded area indicates the reserve's price band which has a width of 70\USD; the reserve is restocked (released), if prices drop below (increase above) the floor price (thin light-blue line) (ceiling price (thin green line)). The price band is centered around the mean price of the previous 15-years (gray dashed line). Correlations between reported and simulated prices (w/o reserve) are measured by the squared Pearson correlation coefficient $R^2$. The orange bracket marks the time span where the reserve actively impacts on market dynamics.}
+\label{fig:Fig1}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+\includegraphics[width=.8\textwidth]{plots/full/Ending_stocks__MMT__1980_2017}
+\caption{Ending stock for the five agricultural regions: European Union (EUR), Former Soviet Union (FSU), North Atlantic Free Trade countries (NAF), Centrally Planned Asia (CPA ), rest of the world (ROW), as well as global stocks (global). Black diamonds indicate ending stocks as reported by USDA, and blue dots and open orange circles indicate simulated endings stocks without and with international wheat reserve, respectively. Squared Pearson correlation coefficients $R^2$ denote the correlation between reported stocks and the simulation without reserve. In `global', tonnage and capacity of the international reserve are indicated by small orange dots and an orange line, respectively.}
+  \label{fig:Fig2}
+\end{figure}
+\begin{figure}[htbp]
+\centering  \includegraphics[width=.8\textwidth]{plots/arti_ts_2010_15/pdf_and_costs2grid.pdf}
+\caption{Reduction of price volatility and costs for different sizes of the international reserve.  \textbf{A}: Probability density function. Diamonds and filled dots denote minima and maxima of price time series, respectively. Vertical dashed lines indicate the means of the price distributions. \textbf{B}: Volatility reduction in percent (orange dots, left y-axis) and reduction of the probability of occurrence for prices $P\geq 93$\USD, i.e., above the 90\textsuperscript{th} percentile of the price distribution for the full historical scenario (w/o reserve); see gray shaded area in A. \textbf{C}: Costs (green, left y-axis) and marginal costs for volatility reduction (blue, right y-axis) in dependence of reserve size. The price band has a width of 18\USD.}
+  \label{fig:Fig3}
+\end{figure}
+
+\clearpage
+\appendix
+%\afterpage{\clearpage}
+%\onecolumn
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\section*{Supplementary Material (SI)}
+\label{sec:SI}
+\input{support_info}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
