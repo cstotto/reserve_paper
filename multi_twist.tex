@@ -2,23 +2,7 @@
 
 \documentclass[12pt]{article}
 
-% Users of the {thebibliography} environment or BibTeX should use the
-% scicite.sty package, downloadable from *Science* at
-% http://www.sciencemag.org/authors/preparing-manuscripts-using-latex 
-% This package should properly format in-text
-% reference calls and reference-list numbers.
-
-\usepackage{scicite}
 \usepackage{times}
-
-% The preamble here sets up a lot of new/revised commands and
-% environments.  It's annoying, but please do *not* try to strip these
-% out into a separate .sty file (which could lead to the loss of some
-% information when we convert the file to other formats).  Instead, keep
-% them in the preamble of your main LaTeX source file.
-
-
-% The following parameters seem to provide a reasonable page setup.
 
 \topmargin 0.0cm
 \oddsidemargin 0.2cm
@@ -46,25 +30,19 @@
 
 % The next command sets up an environment for the abstract to your paper.
 
-\newenvironment{sciabstract}{%
+\newenvironment{natabstract}{%
 \begin{quote} \bf}
 {\end{quote}}
 
 % Include your paper's title here
 
-% not more than 96 characters including spaces
+%Maximum title length is 15 words
 %\title{Combating global food insecurity with an international wheat reserve}
-\title{Combating extremes in global food prices with an international wheat reserve}
+\title{Combating extremes in global food prices with an international wheat reserve} 
 %\title{Improving global food security with an international wheat reserve} 
 
-% Place the author information here.  Please hand-code the contact
-% information and notecalls; do *not* use \footnote commands.  Let the
-% author contact information appear immediately below the author names
-% as shown.  We would also prefer that you don't change the type-size
-% settings shown here.
-
 \author
-{C.~Otto,$^{a,b,d,\ast}$ J.~Schewe$^{a}$, M.J.~Puma $^{b,c,d}$, K.~Frieler $^{a}$\\
+{C.~Otto,$^{a,d,\ast}$ J.~Schewe$^{a}$, M.J.~Puma $^{b,c,d}$, T.~Falkendahl$^{a}$K.~Frieler $^{a}$\\
   \\
   \normalsize{ $^{a}$Potsdam Institute for Climate Impact Research, Potsdam, Germany}\\
   \normalsize{ $^{b}$The Earth Institute, Columbia University, New York, NY, USA}\\
@@ -93,14 +71,16 @@
 
 \maketitle 
 
-\begin{sciabstract} % not more than 150 words according to science template (or 125 words or less according to http://www.sciencemag.org/authors/instructions-preparing-initial-manuscript)
+\begin{natabstract} % not more than 150 words, no citations
 High food price volatility on global markets undermines food security. An international grain reserve has been suggested to prevent damaging price extremes, but available modeling approaches do not allow for reliable assessments of its effectiveness under real-world market conditions. Here, we introduce a novel dynamic multi-regional storage model for agricultural markets that accurately reproduces annual world market prices (including the extremes) and regional ending stocks of wheat from 1980 to the present. We demonstrate that an international wheat reserve of 70 million metric tons would have been sufficient to substantially mitigate past price spikes. Critically, its operational costs are estimated to be small compared to the expenses for present national agricultural support programs, meaning that such a reserve could be a viable means to mitigate regional production shortfalls and price-driving national market interventions. As such, it could become an important tool to mitigate the risks of social instability and climate change.
-\end{sciabstract}
+\end{natabstract}
 
-\paragraph*{One sentence summary} % not more than 125 characters
-Global food security could be enhanced by an international wheat reserve mitigating damaging price extremes at moderate costs.
-\newline
+% \paragraph*{One sentence summary} % not more than 125 characters
+% Global food security could be enhanced by an international wheat reserve mitigating damaging price extremes at moderate costs.
+% \newline
+% Main text up to 5000 words
 
+\section*{Introduction}
 Crop price volatility on world markets (WMs) is challenging food security especially for poorer consumers in developing and emerging economies \cite{BRA08}, who cannot be protected sufficiently by their local governments \cite{HLPE11}. In just the last decade, two prominent price peaks -– in 2007/08 and in 2010/11 -– are estimated to have pushed 63 \cite{TIW10} to 80 \cite{FAO08} million people and about 44 million people, respectively, into food insecurity. The resulting food riots undermined social stability in multiple countries \cite{BER13}. Highly volatile prices also threaten the income base of producers, especially smallholders \cite{HLPE11} and render hedging and crop insurance for farmers expensive. Long-term investments into agricultural research \& development (\RD) that are key to enhance the resilience of the global food system \cite{GOD10,FED10} are jeopardized.
 
 Price volatility results from a complex interplay of various long-term and short-term drivers, whose relative importance is still a contentious topic \cite{TAD14}. The set of long-term drivers discussed to have contributed to the recent global food crises include population growth, changing diets in emerging economies \cite{HEA10}, low investments in \RD~as a consequence of low crop-prices in the 1990s \cite{BRA08}, and, especially in the last decade, the rapidly increasing use of biofuels \cite{GOR13,FRA15}. Short-term drivers include nearly simultaneous droughts affecting several major exporting countries, which led to the record-low stock levels preceding both recent price peaks \cite{TRO11}. In this situation, national policy interventions (such as export restrictions by main producers including the Ukraine and Russia \cite{SHA11} and government-driven restocking attempts by several import depending countries in the Middle East and North Africa and in Asia \cite{TRO11,SCH17}) are discussed to have exacerbated the price hikes by further tightening the WM. Also, some authors argue that the liberalization of future markets in the early 2000s may have created speculative bubbles \cite{TAD14,LAG15}. More process-based quantitative modeling is needed to gain a deeper understanding of the market dynamics \cite{SCH17} allowing for tailored food security policies. 
@@ -183,8 +163,10 @@ Reliable estimates of the reserve's financial viability are key to avoid it beco
 
 Ongoing climate change may increase production variability \cite{WHE13} and may render nearly simultaneous crop failures in major production regions, like those that substantially contributed to the two recent world food crises \cite{ASS11,CHA14}, more likely. Consequently, damaging price extremes may become an increasingly urgent threat for global food security in the future. The international wheat reserve management scheme presented here could be a viable means to mitigate price volatility, potentially complementing efforts to impede beggar-thy-neighbor policies by binding international free-trade legislation suppressing export restrictions \cite{ANA13}. Both measures require international trade cooperation. Prolonged failure of the WTO to make progress on the Doha Agenda sows doubts that substantial progress on international trade agreements will be made anytime soon in this forum \cite{HLPE11}. Therefore, it appears advisable to follow a two-pronged strategy: if no progress can be made in the WTO negotiations, an international reserve can still be implemented by a different multi-national association that comprises the main producing countries such as the UN or the Organization for Economic Cooperation and Development.
 
+\section*{Methods}%Maximum of 3000 words
+
+\bibliographystyle{naturemag}
 \bibliography{lib}
-\bibliographystyle{Science}
 
 
 \section*{Acknowledgments}
@@ -192,6 +174,7 @@ The authors would like to thank Peter de Menocal for in-depth discussions and he
 work was supported by the Leibniz Competition (SAW-2013-PIK-5) and has received funding from the
 Center for Climate and Life as well as the Initiative on Extreme Weather and Climate of Columbia
 University, New York, NY.
+\todo{SLICE, World Modelers}
 
 \begin{figure}[htbp]
   \centering
